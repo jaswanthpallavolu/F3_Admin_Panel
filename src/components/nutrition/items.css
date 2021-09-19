@@ -1,0 +1,31 @@
+.items_list{
+    
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap:2rem;
+
+    
+}
+.item-card{
+    width:20rem;
+    aspect-ratio: 1/1;
+    padding: 0rem 0 .5rem 0;
+    box-shadow: 0 0 2px rgba(0,0,0,.4);
+    border-radius: 10px;
+}
+.item-card h2{
+    margin:.2rem;
+    margin-left: 1rem;
+    text-align: left;
+}
+.item-card img{
+    width: 20rem;
+    height:20rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+.item-card .bottom{
+    display: flex;
+    justify-content: space-around;
+}
