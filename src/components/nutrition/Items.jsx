@@ -70,7 +70,7 @@ const AddForm = ({ id, setStatus }) => {
 
     return (
         <>
-            {mutation.isSuccess ? <Alert sx={{ width: 1 / 4 }} severity="success">item added successfully </Alert> : ''}
+            {/* {mutation.isSuccess ? <Alert sx={{ width: 1 / 4 }} severity="success">item added successfully </Alert> : ''} */}
             <form className="add_form" >
                 <Input placeholder='Item name' size='small' value={name} onChange={(e) => { setName(e.target.value) }} />
                 <Input placeholder='image url' size='small' value={url} onChange={(e) => { setUrl(e.target.value) }} />
