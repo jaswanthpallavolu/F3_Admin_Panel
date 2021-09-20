@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import './items.css'
 
-import { Button, Input, Alert } from '@mui/material/'
+import { Button, Input } from '@mui/material/'
 
 
 import ItemDetails from './ItemDetails';
@@ -20,6 +20,7 @@ export default function Items({ searchId }) {
     }
     const { data, isLoading, error } = useQuery([searchId, status], getDetails)
 
+
     if (error) return <span>{error}</span>
     return (
         <div>
@@ -31,7 +32,7 @@ export default function Items({ searchId }) {
                     <div key={i.id}>
                         <h1>{i.category}</h1>
                         <div className="items_list" >
-                            {i.items.map(item => (
+                            {i.items.slice().map(item => (
                                 <ItemDetails key={item.id} item={item} setStatus={setStatus} />
                             ))}
                         </div>
