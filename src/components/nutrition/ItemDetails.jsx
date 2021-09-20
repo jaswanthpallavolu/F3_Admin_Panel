@@ -25,13 +25,14 @@ export default function ItemDetails({ item, setStatus }) {
 
     const handleModal = () => setOpen(!open);
 
-    const DeleteItem = useMutation(id => axios.delete('http://localhost:2000/item/' + id))
-    const UpdateItem = useMutation((data) => { axios.post('http://localhost:2000/item/update' + data.id, data.params) })
+    const DeleteItem = useMutation(id => axios.delete(process.env.REACT_APP_SERVER + 'nutrition/item/' + id))
+    const UpdateItem = useMutation((data) => { axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/update/' + data.id, data.params) })
     const handleDelete = () => {
         DeleteItem.mutate(item.id)
         setStatus(Math.random())
     }
     const handleUpdate = () => {
+        if (name === item.name && url === item.url) return
         var data = {
             id: item.id,
             params: { name, url }

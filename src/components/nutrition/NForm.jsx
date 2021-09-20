@@ -10,9 +10,10 @@ import Button from '@mui/material/Button';
 
 export default function NForm({ Id, handleCategory, handleSearch }) {
     const { data, isLoading, error } = useQuery("all", async () => {
+        const url = process.env.REACT_APP_SERVER + 'nutrition/category/'
+        // console.log(String(url))
         return (
-            await axios.get('http://localhost:2000/category/')
-
+            await axios.get(url)
         )
 
     })
@@ -20,7 +21,7 @@ export default function NForm({ Id, handleCategory, handleSearch }) {
     if (error) return <span>{error}</span>
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline' }}>
+        <div className="head">
 
             <FormControl sx={{ m: 2, minWidth: 150 }}>
                 <InputLabel id="demo-simple-select-helper-label" size="small">Category</InputLabel>

@@ -1,0 +1,15 @@
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap:min(1rem,1%);
+    margin-bottom: 4rem;
+}
+.add_form{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap:max(1rem,2%);
+}

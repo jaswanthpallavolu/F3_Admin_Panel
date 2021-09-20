@@ -15,7 +15,7 @@ export default function Items({ searchId }) {
         if (!searchId) return;
 
         return (
-            await axios.get('http://localhost:2000/category/' + searchId)
+            await axios.get(process.env.REACT_APP_SERVER + 'nutrition/category/' + searchId)
         )
     }
     const { data, isLoading, error } = useQuery([searchId, status], getDetails)
@@ -49,7 +49,7 @@ const AddForm = ({ id, setStatus }) => {
     const [url, setUrl] = useState('');
 
     const mutation = useMutation((obj) => {
-        axios.post('http://localhost:2000/item/add', obj)
+        axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/add', obj)
     })
     const handleAdd = async () => {
         if (!name || !url) return window.alert('fill all the input fields')
@@ -69,9 +69,9 @@ const AddForm = ({ id, setStatus }) => {
     return (
         <>
             {mutation.isSuccess ? <Alert sx={{ width: 1 / 4 }} severity="success">item added successfully </Alert> : ''}
-            <form className="add_form" style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
+            <form className="add_form" >
                 <Input placeholder='Item name' size='small' value={name} onChange={(e) => { setName(e.target.value) }} />
-                <Input placeholder='Item name' size='small' value={url} onChange={(e) => { setUrl(e.target.value) }} />
+                <Input placeholder='image url' size='small' value={url} onChange={(e) => { setUrl(e.target.value) }} />
                 <Button variant="outlined" size='small' onClick={handleAdd}>Add Item</Button>
             </form>
         </>

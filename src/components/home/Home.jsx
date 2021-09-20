@@ -5,6 +5,10 @@ export default function Home() {
         <div>
             <h1>Home page</h1>
             <Link to="/nutrition">Nutrition</Link>
+            <ul>
+                <li>https://f3-health-api.herokuapp.com/nutrition/category/</li>
+                <li>https://f3-health-api.herokuapp.com/nutrition/category/:id</li>
+            </ul>
         </div>
     )
 }

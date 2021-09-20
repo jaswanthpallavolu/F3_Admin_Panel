@@ -18,7 +18,7 @@ export default function Nutrition() {
 
     return (
         <div className='nutrition'>
-            <h1>Nutrition page</h1>
+            <h1>Nutrition</h1>
 
             <NForm Id={categoryId} handleCategory={handleCategory} handleSearch={handleSearch} />
             <Items searchId={searchId} />
