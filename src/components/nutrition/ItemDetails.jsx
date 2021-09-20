@@ -29,7 +29,9 @@ export default function ItemDetails({ item, setStatus }) {
     const UpdateItem = useMutation((data) => { axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/update/' + data.id, data.params) })
     const handleDelete = () => {
         DeleteItem.mutate(item.id)
-        setStatus(Math.random())
+        setTimeout(() => {
+            setStatus(Math.random())
+        }, 300)
     }
     const handleUpdate = () => {
         if (name === item.name && url === item.url) return
@@ -38,7 +40,9 @@ export default function ItemDetails({ item, setStatus }) {
             params: { name, url }
         }
         UpdateItem.mutate(data)
-        setStatus(Math.random())
+        setTimeout(() => {
+            setStatus(Math.random())
+        }, 300)
     }
     return (
         <>

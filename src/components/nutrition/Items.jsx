@@ -48,8 +48,8 @@ const AddForm = ({ id, setStatus }) => {
     const [name, setName] = useState('');
     const [url, setUrl] = useState('');
 
-    const mutation = useMutation((obj) => {
-        axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/add', obj)
+    const mutation = useMutation(async (obj) => {
+        await axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/add', obj)
     })
     const handleAdd = async () => {
         if (!name || !url) return window.alert('fill all the input fields')
@@ -61,7 +61,9 @@ const AddForm = ({ id, setStatus }) => {
         mutation.mutate(obj)
         setName('')
         setUrl('')
-        setStatus(name)
+        setTimeout(() => {
+            setStatus(Math.random())
+        }, 300)
 
     }
     if (mutation.isLoading) return <span>Loading.....</span>
