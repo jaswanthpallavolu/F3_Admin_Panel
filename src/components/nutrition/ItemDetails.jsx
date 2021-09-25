@@ -1,6 +1,4 @@
-import axios from 'axios'
 import React, { useState } from 'react'
-import { useMutation } from 'react-query'
 import { Button, Modal, Fade, Box, Backdrop, Input } from '@mui/material'
 
 const style = {
@@ -8,30 +6,29 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 'min(25rem,70%)',
     bgcolor: 'background.paper',
     border: '1px solid #000',
-    boxShadow: 24,
+    boxShadow: 20,
     p: 4,
     display: 'flex',
     flexDirection: 'column',
     gap: '2rem'
 };
 
-export default function ItemDetails({ item, setStatus }) {
+export default function ItemDetails({ item, setStatus, UpdateItem, DeleteItem }) {
     const [open, setOpen] = useState(false);
     const [name, setName] = useState(item.name);
     const [url, setUrl] = useState(item.url);
 
     const handleModal = () => setOpen(!open);
 
-    const DeleteItem = useMutation(id => axios.delete(process.env.REACT_APP_SERVER + 'nutrition/item/' + id))
-    const UpdateItem = useMutation((data) => { axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/update/' + data.id, data.params) })
+
     const handleDelete = () => {
         DeleteItem.mutate(item.id)
         setTimeout(() => {
-            setStatus(Math.random())
-        }, 300)
+            setStatus(Math.random() * 1000)
+        }, 500)
     }
     const handleUpdate = () => {
         if (name === item.name && url === item.url) return
@@ -41,8 +38,8 @@ export default function ItemDetails({ item, setStatus }) {
         }
         UpdateItem.mutate(data)
         setTimeout(() => {
-            setStatus(Math.random())
-        }, 300)
+            setStatus(Math.random() * 10)
+        }, 500)
     }
     return (
         <>
