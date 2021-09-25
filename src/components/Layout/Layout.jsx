@@ -10,14 +10,14 @@ import './layout.css'
 
 export default function Layout() {
     return (
-        <div className="layout">
+        <>
             <Navbar />
             <div className="sec2">
                 <Switch>
-                    <PrivateRoute exact path='/' component={Home} />
-                    <PrivateRoute path='/nutrition' component={Nutrition} />
+                    <PrivateRoute exact path='/admin' component={Home} />
+                    <PrivateRoute path='/admin/nutrition' component={Nutrition} />
                 </Switch>
             </div>
-        </div>
+        </>
     )
 }

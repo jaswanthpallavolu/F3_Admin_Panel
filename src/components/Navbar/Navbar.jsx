@@ -19,9 +19,9 @@ export default function Navbar() {
         <div className="navbar">
             <span>ADMIN</span>
             <ul className='nav'>
-                <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/nutrition'>Nutrition</NavLink></li>
-                <li><NavLink to='/fitness'>Fitness</NavLink></li>
+                <li><NavLink to='/admin'>Home</NavLink></li>
+                <li><NavLink to='/admin/nutrition'>Nutrition</NavLink></li>
+                <li><NavLink to='/admin/fitness'>Fitness</NavLink></li>
             </ul>
             <Button size='large' color='secondary' variant='outlined' onClick={handleLogout}>Logout</Button>
         </div>

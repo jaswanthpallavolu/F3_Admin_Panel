@@ -1,6 +1,3 @@
 .home{
-    position: relative;
-     
-    z-index:1;
-    background:paleturquoise;
+    padding-top: 10%;
 }
