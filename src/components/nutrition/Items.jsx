@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import './items.css'
 
-import { Button, Input } from '@mui/material/'
+import { Button, Input, CircularProgress } from '@mui/material/'
 import ItemDetails from './ItemDetails';
 
 export default function Items({ searchId }) {
@@ -48,7 +48,7 @@ export default function Items({ searchId }) {
                         </div>
                     </div>
                 ))}
-            </> : <h3>loading...</h3>}
+            </> : <div style={{ marginTop: '10%' }}><CircularProgress color='primary' /></div>}
 
         </div>
     )

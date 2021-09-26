@@ -1,5 +1,4 @@
 import React from 'react'
-import { Switch } from 'react-router-dom'
 import PrivateRoute from '../../PrivateRoute'
 
 import Navbar from '../Navbar/Navbar'
@@ -13,10 +12,8 @@ export default function Layout() {
         <>
             <Navbar />
             <div className="sec2">
-                <Switch>
-                    <PrivateRoute exact path='/admin' component={Home} />
-                    <PrivateRoute path='/admin/nutrition' component={Nutrition} />
-                </Switch>
+                <PrivateRoute exact path='/admin' component={Home} />
+                <PrivateRoute path='/admin/nutrition' component={Nutrition} />
             </div>
         </>
     )

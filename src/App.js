@@ -7,6 +7,7 @@ import PrivateRoute from './PrivateRoute';
 import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
 
+
 function App() {
   return (
     <MyContextProvider>
@@ -19,6 +20,7 @@ function App() {
 
             <PrivateRoute path='/admin' component={Layout} />
             <Route path='/login' component={Login} />
+
           </Switch>
         </div>
       </Router>

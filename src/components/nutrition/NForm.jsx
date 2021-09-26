@@ -2,11 +2,8 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import axios from 'axios'
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
+import { FormControl, Select, Button, InputLabel, MenuItem, CircularProgress } from '@mui/material';
+
 
 export default function NForm({ Id, handleCategory, handleSearch }) {
     const { data, isLoading, error } = useQuery("all", async () => {
@@ -17,7 +14,7 @@ export default function NForm({ Id, handleCategory, handleSearch }) {
         )
 
     })
-    if (isLoading) return <div className="loading">Loading...</div>
+    if (isLoading) return <div  ><CircularProgress color='primary' /></div>
     if (error) return <span>{error}</span>
 
     return (
