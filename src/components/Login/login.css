@@ -18,5 +18,5 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 .login .form span{
-    font-size: clamp(2rem, 5vw, 2rem);
+    font-size: clamp(1.5rem, 10vw, 2rem);
 }

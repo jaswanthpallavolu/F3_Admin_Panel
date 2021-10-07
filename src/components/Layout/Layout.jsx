@@ -8,6 +8,7 @@ import Nutrition from '../nutrition/Nutrition'
 import './layout.css'
 
 export default function Layout() {
+
     return (
         <>
             <Navbar />

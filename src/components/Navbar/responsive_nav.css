@@ -20,7 +20,7 @@
     .lable-btn{
         position: absolute;
         top:0;
-        right:0;
+        right:.5rem;
         margin: .2rem;
 
         width:2.5rem;
@@ -56,16 +56,20 @@
 
     /* toggling */
     .toggle-btn:checked + .nav{
-        transform: scale(1,0);
+        transform: scale(1,1);
+    }
+    .toggle-btn:checked + .nav li{
+        opacity: 1;
+        transition: opacity .7s ease-out;
     }
     .nav{
         position: absolute;
-        left:0;
+        left:0rem;
+        right:0;
         top:100%;
-        width:100%;
-
+        
         list-style: none;
-        padding: 1rem;
+        padding: 1rem 0rem 1rem 1rem ;
       
         display: flex;
         flex-direction: column;
@@ -73,13 +77,16 @@
         background-color: white;
         border: 2px solid black;
 
-        transform: scale(1,1);
+        transform: scale(1,0);
         transform-origin: top;
-        transition: transform .3s ease-in-out;
+        transition: transform .3s ease-out;
     }
     .nav li{
         margin: 0;
         text-align: left;
+        opacity: 0;
+        transition: opacity .2s ease-out;
     }
+   
   
 }

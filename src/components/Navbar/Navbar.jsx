@@ -19,14 +19,18 @@ export default function Navbar() {
             console.log('error')
         }
     }
+    const handleToggle = () => {
+        const toggle_btn = document.querySelector('.navbar .toggle-btn')
+        toggle_btn.checked = false
+    }
     return (
         <div className="navbar">
             <div className="logo">F3 ADMIN</div>
             <input type="checkbox" name="" id="toggle-btn" className='toggle-btn' />
             <ul className='nav'>
-                <li><NavLink exact activeClassName="active" className="link" to='/admin'>Home</NavLink></li>
-                <li><NavLink activeClassName="active" className="link" to='/admin/nutrition'>Nutrition</NavLink></li>
-                <li><NavLink activeClassName="active" className="link" to='/admin/fitness'>Fitness</NavLink></li>
+                <li><NavLink exact activeClassName="active" className="link" to='/admin' onClick={handleToggle}>Home</NavLink></li>
+                <li><NavLink activeClassName="active" className="link" to='/admin/nutrition' onClick={handleToggle} >Nutrition</NavLink></li>
+                <li><NavLink activeClassName="active" className="link" to='/admin/fitness' onClick={handleToggle} >Fitness</NavLink></li>
                 <li className="logout"><Button size='small' color='secondary' variant='outlined' onClick={handleLogout} startIcon={<LogoutIcon />}>Logout</Button></li>
             </ul>
 

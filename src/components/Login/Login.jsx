@@ -30,24 +30,24 @@ export default function Login() {
                 return;
             }
             await Login(email, password);
-            console.log('success')
             history.push('/');
         } catch {
             setError('Failed to signin');
+            setLoading(false);
         }
 
-        setLoading(false);
+
     }
 
     return (
         <div className="login">
-            <div className="form">
+            <form className="form">
                 {error ? <Alert color='error' sx={{ marginBottom: '-1rem' }} severity="error">{error}</Alert> : ''}
                 <span>Admin Login</span>
-                <Input placeholder="Enter email" color='secondary' variant='outlined' onChange={handleEmail} />
-                <Input placeholder="Enter Password" color='secondary' onChange={handlePswd} />
+                <Input type="email" placeholder="Enter email" color='secondary' variant='outlined' onChange={handleEmail} />
+                <Input type='password' placeholder="Enter Password" color='secondary' autoComplete="off" onChange={handlePswd} />
                 <Button disabled={loading} size="medium" color="secondary" variant="contained" onClick={handleLogin}>Login</Button>
-            </div>
+            </form>
         </div>
     )
 }
