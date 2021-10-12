@@ -18,15 +18,13 @@ export default function Items({ searchId }) {
         )
     }
     const { data, isLoading, error } = useQuery([searchId, status], getDetails)
-    const AddItem = useMutation(async (obj) => {
-        await axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/add', obj)
-    })
+    const AddItem = useMutation((obj) => axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/add', obj))
     const DeleteItem = useMutation(id => axios.delete(process.env.REACT_APP_SERVER + 'nutrition/item/' + id))
-    const UpdateItem = useMutation((data) => { axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/update/' + data.id, data.params) })
+    const UpdateItem = useMutation((data) => axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/update/' + data.id, data.params))
 
     // const [message, setMessage] = useState('')
 
-
+    console.log(data?.data)
     if (error) return <span>{error}</span>
     return (
         <div>
@@ -60,7 +58,8 @@ const AddForm = ({ id, setStatus, AddItem }) => {
     const [url, setUrl] = useState('');
 
 
-    const handleAdd = async () => {
+    const handleAdd = async (e) => {
+        e.preventDefault()
         if (!name || !url) return window.alert('fill all the input fields')
         var obj = {
             categoryId: id,
@@ -82,7 +81,7 @@ const AddForm = ({ id, setStatus, AddItem }) => {
             <form className="add_form" >
                 <Input placeholder='Item name' size='small' value={name} onChange={(e) => { setName(e.target.value) }} />
                 <Input placeholder='image url' size='small' value={url} onChange={(e) => { setUrl(e.target.value) }} />
-                <Button variant="outlined" size='small' onClick={handleAdd}>Add Item</Button>
+                <Button variant="outlined" size='small' onClick={handleAdd} type='submit'>Add Item</Button>
             </form>
         </>
     )

@@ -11,6 +11,7 @@ export function MyContextProvider({ children }) {
     const [loading, setLoading] = useState(true)
     const [currentUser, setCurrentUser] = useState()
 
+
     function Login(email, password) {
         return auth.signInWithEmailAndPassword(email, password);
     }
@@ -31,6 +32,7 @@ export function MyContextProvider({ children }) {
         currentUser,
         setCurrentUser
     }
+
     return (
         <MyContext.Provider value={{ secure: secure }}>
             {!loading && children}
