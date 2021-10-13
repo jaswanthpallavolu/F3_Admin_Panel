@@ -59,8 +59,8 @@ export function ItemForm({ searchId, setStatus }) {
         titleRef.current.value = ''
         linkRef.current.value = ''
         setTimeout(() => {
-            setStatus(Math.random)
-        }, 300)
+            setStatus(title + 'added')
+        }, 500)
 
     }
     return (

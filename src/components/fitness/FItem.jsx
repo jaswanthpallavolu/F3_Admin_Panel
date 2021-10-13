@@ -32,8 +32,8 @@ export default function FItem({ item, setStatus }) {
     const handleDelete = () => {
         DeleteItem.mutate(item.itemId)
         setTimeout(() => {
-            setStatus(item.title)
-        }, 300)
+            setStatus(item.title + 'deleted!')
+        }, 500)
     }
     const handleUpdate = () => {
         if ((item.link === link) && (item.title === title)) {
@@ -46,9 +46,9 @@ export default function FItem({ item, setStatus }) {
         }
         UpdateItem.mutate(data)
         setTimeout(() => {
-            setStatus(item.title + '123')
+            setStatus(item.title + 'updated!')
             handleModal()
-        }, 300)
+        }, 500)
 
     }
 
