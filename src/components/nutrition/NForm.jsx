@@ -14,7 +14,7 @@ export default function NForm({ Id, handleCategory, handleSearch }) {
         )
 
     })
-    if (isLoading) return <div  ><CircularProgress color='primary' /></div>
+    if (isLoading) return <div style={{ textAlign: 'center' }}  ><CircularProgress color='primary' /></div>
     if (error) return <span>{error}</span>
 
     return (

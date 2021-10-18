@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import NForm from './NForm';
 import Items from './Items';
@@ -9,6 +9,7 @@ export default function Nutrition() {
     const [searchId, setSearchId] = useState('')
 
     const handleSearch = () => {
+        sessionStorage.setItem('n_s_id', categoryId)
         setSearchId(categoryId)
     }
     const handleCategory = (event) => {
@@ -16,6 +17,10 @@ export default function Nutrition() {
         setCategoryId(id)
     };
 
+    useEffect(() => {
+        const s_id = sessionStorage.getItem('n_s_id')
+        if (s_id) { setCategoryId(s_id); setSearchId(s_id) }
+    }, [])
     return (
         <div className='nutrition'>
             <NForm Id={categoryId} handleCategory={handleCategory} handleSearch={handleSearch} />

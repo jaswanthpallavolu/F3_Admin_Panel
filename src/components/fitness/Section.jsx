@@ -38,7 +38,7 @@ export default function Section({ searchId }) {
 
 
                 </>
-                : <CircularProgress color='primary' sx={{ mt: 5 }} />}
+                : <div style={{ marginTop: '10%', textAlign: 'center' }} > <CircularProgress color='primary' sx={{ mt: 5 }} /> </div>}
 
         </div>
     )

@@ -6,14 +6,17 @@ import { FormControl, InputLabel, Select, Button, CircularProgress } from '@mui/
 import './fheader.css'
 
 export default function Fheader({ Id, handleCategory, handleSearch }) {
+
     const getCategories = () => {
         const url = process.env.REACT_APP_SERVER + 'fitness/categories/'
-        return (axios.get(url))
+        return axios.get(url)
     }
-    const { data, isLoading, error } = useQuery('jgsuc', getCategories)
+    const { data, isLoading, error } = useQuery("query", getCategories)
 
-    if (isLoading) return <div  ><CircularProgress color='primary' /></div>
+    if (isLoading) return <div style={{ textAlign: 'center' }}  ><CircularProgress color='primary' /></div>
     if (error) return <span>{error}</span>
+
+
     return (
         <div className='header'>
             <FormControl sx={{ m: 2, minWidth: 150 }} >

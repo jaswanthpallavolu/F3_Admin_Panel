@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation } from 'react-query'
 import axios from 'axios'
 
@@ -20,11 +20,10 @@ export default function Items({ searchId }) {
     const { data, isLoading, error } = useQuery([searchId, status], getDetails)
     const AddItem = useMutation((obj) => axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/add', obj))
     const DeleteItem = useMutation(id => axios.delete(process.env.REACT_APP_SERVER + 'nutrition/item/' + id))
-    const UpdateItem = useMutation((data) => axios.post(process.env.REACT_APP_SERVER + 'nutrition/item/update/' + data.id, data.params))
 
-    // const [message, setMessage] = useState('')
-
-    console.log(data?.data)
+    useEffect(() => {
+        window.scrollTo({ top: 0 })
+    }, [])
     if (error) return <span>{error}</span>
     return (
         <div>
@@ -40,13 +39,12 @@ export default function Items({ searchId }) {
                         </div>
                         <div className="items_list" >
                             {Array.from(i.items).reverse().map(item => (
-                                <ItemDetails key={item.id} item={item}
-                                    setStatus={setStatus} DeleteItem={DeleteItem} UpdateItem={UpdateItem} />
+                                <ItemDetails key={item.id} item={item} setStatus={setStatus} DeleteItem={DeleteItem} />
                             ))}
                         </div>
                     </div>
                 ))}
-            </> : <div style={{ marginTop: '10%' }}><CircularProgress color='primary' /></div>}
+            </> : <div style={{ marginTop: '10%', textAlign: 'center' }} ><CircularProgress color='primary' /></div>}
 
         </div>
     )
@@ -77,7 +75,7 @@ const AddForm = ({ id, setStatus, AddItem }) => {
 
     return (
         <>
-            {/* {mutation.isSuccess ? <Alert sx={{ width: 1 / 4 }} severity="success">item added successfully </Alert> : ''} */}
+
             <form className="add_form" >
                 <Input placeholder='Item name' size='small' value={name} onChange={(e) => { setName(e.target.value) }} />
                 <Input placeholder='image url' size='small' value={url} onChange={(e) => { setUrl(e.target.value) }} />

@@ -7,11 +7,12 @@ export default function Home() {
 
     return (
         <div className="home">
-            <h1>Home page</h1>
-            <ol style={{ marginTop: '5rem' }}>
+
+            <ol style={{ marginTop: '5rem', display: 'grid', placeItems: 'center', listStyle: 'none' }}>
                 <li><h3>API Routes</h3></li>
                 <li>https://f3-health-api.herokuapp.com/nutrition/category/</li>
                 <li>https://f3-health-api.herokuapp.com/nutrition/category/:id</li>
+                <li>https://f3-health-api.herokuapp.com/nutrition/item/:id</li>
                 <li>https://f3-health-api.herokuapp.com/fitness/categories/</li>
                 <li>https://f3-health-api.herokuapp.com/fitness/categories/:id</li>
             </ol>

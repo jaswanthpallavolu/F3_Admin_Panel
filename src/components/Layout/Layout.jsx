@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import Home from '../home/Home'
 import Nutrition from '../nutrition/Nutrition'
 import Fitness from '../fitness/Fitness'
-
+import MoreDetails from '../nutrition/More'
 import './layout.css'
 
 export default function Layout() {
@@ -15,7 +15,8 @@ export default function Layout() {
             <Navbar />
             <div className="sec2">
                 <PrivateRoute exact path='/admin' component={Home} />
-                <PrivateRoute path='/admin/nutrition' component={Nutrition} />
+                <PrivateRoute exact path='/admin/nutrition' component={Nutrition} />
+                <PrivateRoute path='/admin/nutrition/item' component={MoreDetails} />
                 <PrivateRoute path='/admin/fitness' component={Fitness} />
             </div>
         </>
