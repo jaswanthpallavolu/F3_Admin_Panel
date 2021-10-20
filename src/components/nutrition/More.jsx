@@ -24,7 +24,7 @@ export default function More() {
     if (error) return <span>{error}</span>
     return (
         <div className="item_details">
-            <button className="back" onClick={() => { history.goBack() }}><i className="fas fa-arrow-left"></i> back</button>
+            <button className="back" onClick={() => { history.goBack() }}><i className="fas fa-arrow-left"></i></button>
             {data?.data ?
                 <>
                     <div className="main">

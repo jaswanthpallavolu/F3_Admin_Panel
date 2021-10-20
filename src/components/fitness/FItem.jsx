@@ -10,7 +10,6 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 'min(25rem,70%)',
     bgcolor: 'background.paper',
-    border: '1px solid #000',
     boxShadow: 20,
     p: 4,
     display: 'flex',
@@ -51,6 +50,15 @@ export default function FItem({ item, setStatus }) {
         }, 500)
 
     }
+    const customBackdrop = () => {
+        return (
+            <Backdrop
+                style={{ background: 'rgba(0,0,0,.7)' }}
+                open={open}
+                onClick={handleModal}
+            ></Backdrop>
+        )
+    }
 
     return (
         <>
@@ -71,7 +79,7 @@ export default function FItem({ item, setStatus }) {
                 open={open}
                 onClose={handleModal}
                 closeAfterTransition
-                BackdropComponent={Backdrop}
+                BackdropComponent={customBackdrop}
                 BackdropProps={{
                     timeout: 500,
                 }}

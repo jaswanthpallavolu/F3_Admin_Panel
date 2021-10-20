@@ -19,8 +19,7 @@ export default function NForm({ Id, handleCategory, handleSearch }) {
 
     return (
         <div className="head">
-
-            <FormControl sx={{ m: 2, minWidth: 150 }}>
+            <FormControl sx={{ m: 2, minWidth: 150 }} >
                 <InputLabel id="demo-simple-select-helper-label" size="small">Category</InputLabel>
                 <Select
                     size='small'
@@ -45,7 +44,7 @@ export default function NForm({ Id, handleCategory, handleSearch }) {
                     })}
                 </Select>
             </FormControl>
-            <Button variant='contained' color='secondary' onClick={handleSearch}>Search</Button>
+            <Button variant='contained' color='secondary' onClick={handleSearch} size='small'>Search</Button>
 
         </div>
     )

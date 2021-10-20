@@ -46,23 +46,25 @@ export default function EditForm({ item, setToggle, setSup }) {
         if (!a && !b) return
         const obj = { name: a, link: b }
         setBlogs([...blogs, obj])
+        b_nameRef.current.value = ''
+        b_linkRef.current.value = ''
     }
     useEffect(() => {
         itemNRef.current.value = item.itemName
         urlRef.current.value = item.url
-        desRef.current.value = item.more?.description
+        desRef.current.value = item.more?.description ? item.more?.description : ''
         if (item.more?.blogs) setBlogs(item.more?.blogs)
     }, [])//eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="form">
-
+            <h2>Edit Section :</h2>
             <div className="formG">
                 <FormLabel>Name</FormLabel>
                 <TextField size='small' placeholder='enter item name' inputRef={itemNRef} />
             </div>
             <div className="formG">
                 <FormLabel>URL</FormLabel>
-                <TextField size='small' placeholder='enter item name' inputRef={urlRef} />
+                <TextField size='small' placeholder='enter item name' inputRef={urlRef} style={{ width: '25rem' }} />
             </div>
             <div className="formG">
                 <FormLabel>Description</FormLabel>
@@ -70,7 +72,7 @@ export default function EditForm({ item, setToggle, setSup }) {
             </div>
 
             <div className="list_links">
-                <h3>Links :</h3>
+                <h4>Links :</h4>
                 <div className="formG">
                     <div className="formG">
                         <FormLabel>Link name</FormLabel>

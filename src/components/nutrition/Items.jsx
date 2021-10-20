@@ -73,13 +73,18 @@ const AddForm = ({ id, setStatus, AddItem }) => {
 
     }
 
+    const style1 = {
+        background: 'white',
+        padding: '.2rem',
+        borderRadius: '3px'
+    }
     return (
         <>
 
             <form className="add_form" >
-                <Input placeholder='Item name' size='small' value={name} onChange={(e) => { setName(e.target.value) }} />
-                <Input placeholder='image url' size='small' value={url} onChange={(e) => { setUrl(e.target.value) }} />
-                <Button variant="outlined" size='small' onClick={handleAdd} type='submit'>Add Item</Button>
+                <Input placeholder='Item name' size='small' value={name} style={style1} onChange={(e) => { setName(e.target.value) }} />
+                <Input placeholder='image url' size='small' value={url} style={style1} onChange={(e) => { setUrl(e.target.value) }} />
+                <Button variant='contained' size='small' onClick={handleAdd} type='submit'>Add Item</Button>
             </form>
         </>
     )

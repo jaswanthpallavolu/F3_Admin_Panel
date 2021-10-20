@@ -46,4 +46,7 @@
 .navbar .nav li .active.link::after{
     transform: scale(1,1);
 }
+.navbar .nav .logout{
+   margin-left: 2rem;
+}
  

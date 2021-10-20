@@ -63,10 +63,15 @@ export function ItemForm({ searchId, setStatus }) {
         }, 500)
 
     }
+    const style1 = {
+        background: 'white',
+        padding: '.2rem',
+        borderRadius: '3px'
+    }
     return (
         <form className='iform'>
-            <Input type="text" size="small" color="secondary" placeholder="enter title" inputRef={titleRef} />
-            <Input size="small" placeholder="enter link" color="secondary" inputRef={linkRef} />
+            <Input type="text" size="small" color="secondary" placeholder="enter title" inputRef={titleRef} style={style1} />
+            <Input size="small" placeholder="enter link" color="secondary" inputRef={linkRef} style={style1} />
             <Button size='small' variant='contained' color="secondary" type="submit" onClick={handleAdd}>Add Item</Button>
         </form>
     )

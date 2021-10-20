@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 .App {
  
-  font-family:'open sans';
+  font-family:'Open sans',sans-serif;
 
   /* COLOR PALLETS */
   --primary:hsl(271, 90%, 60%);
