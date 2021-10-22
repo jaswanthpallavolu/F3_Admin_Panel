@@ -37,9 +37,9 @@ export default function More() {
                                 <>
                                     <div className="des">{data.data.more?.description}</div>
                                     <div className="links">
-                                        {data.data.more?.blogs.map(i => (
+                                        {data.data?.more?.blogs ? data.data.more.blogs.map(i => (
                                             <div className="title" key={Math.random() * 200}><a href={i.link} target='_blank' rel="noreferrer">{i.name}</a></div>
-                                        ))}
+                                        )) : ''}
                                     </div>
                                 </>
                                 : <h1>None</h1>}
