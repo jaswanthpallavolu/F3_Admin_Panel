@@ -64,7 +64,7 @@ export default function FItem({ item, setStatus }) {
         <>
             <div className="frame" >
                 <div className="item_title">{item.title}</div>
-                <iframe width="480" height="280"
+                <iframe
                     src={item.link}
                     title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen></iframe>

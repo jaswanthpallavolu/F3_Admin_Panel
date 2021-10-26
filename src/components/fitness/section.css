@@ -19,6 +19,8 @@
 }
 /* ITEM */
 .fitness .content .frame{
+    overflow: hidden;
+    width:min(30rem,80%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,8 +30,13 @@
     border-radius: .5rem;
     background: var(--light);
 }
+.fitness .content .frame iframe{
+    width:100%;
+    height: 18rem;
+}
 .fitness .content .frame .item_title{
-    margin: .5rem;
+    width:max-content;
+    margin:.5rem;
     font-size: 1.2rem;
     font-weight: 500;
 }
